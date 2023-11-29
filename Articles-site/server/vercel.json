@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/articles/get-articles",
+      "src": "/get-articles",
       "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
@@ -12,7 +12,7 @@
       "continue": true
     },
     {
-      "src": "/comments",
+      "src": "/add-post",
       "methods": ["OPTIONS", "POST"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
@@ -22,7 +22,7 @@
       "continue": true
     },
     {
-      "src": "/comments",
+      "src": "/get-post",
        "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
