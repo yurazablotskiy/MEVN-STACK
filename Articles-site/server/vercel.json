@@ -22,7 +22,7 @@
       "continue": true
     },
     {
-      "src": "/get-post",
+      "src": "/get-posts",
        "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
