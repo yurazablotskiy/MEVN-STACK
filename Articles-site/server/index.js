@@ -12,18 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const connectToDatabase = async () => {
-  try {
-    await mongoose.connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority')
+  .then(() => {
     console.log('Підключено до БД');
-  } catch (err) {
-    console.error('Помилка підключення до БД:', err.message);
-  }
-};
-connectToDatabase();
+  })
+  .catch((err) => {
+    throw err;
+  });
 
 app.use('/', cors(
    origin: ["https://article-site-server.vercel.app
