@@ -12,9 +12,6 @@
       "dest": "index.js"
     }
   ],
-  "env": {
-    "MONGODB_URI": 'mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority'
-  },
   "functions": {
     "api/*": {
       "cors": {
