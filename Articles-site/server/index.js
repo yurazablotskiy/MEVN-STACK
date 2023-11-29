@@ -10,7 +10,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(
   {
-  origin: 'http://yourfrontenddomain.com',
+  origin: 'https://article-site-server.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }
