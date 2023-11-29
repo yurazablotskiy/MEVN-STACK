@@ -3,7 +3,7 @@ import { Comments } from '../models/comment.js';
 
 const commentRouter = express.Router();
 
-commentRouter.post('/add-post', async (req, res) => {
+commentRouter.post('/api/add-post', async (req, res) => {
   try {
     const newAddPost = new Comments(req.query);
     const result = await newAddPost.save();
@@ -15,7 +15,7 @@ commentRouter.post('/add-post', async (req, res) => {
   }
 });
 
-commentRouter.get('/get-posts', async (req, res) => {
+commentRouter.get('/api/get-posts', async (req, res) => {
   try {
     const getPosts = await Comments.find().sort({ _id: -1 });
     if (!getPosts) throw new Error('Статьи не найдены');
