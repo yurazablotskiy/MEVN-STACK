@@ -32,10 +32,6 @@ connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog
     throw err;
   });
 
-app.get("/", (req, res) => {
-  res.json("Hello")
-});
-
 app.use('/', articleRouter);
 app.use('/', commentRouter);
 
