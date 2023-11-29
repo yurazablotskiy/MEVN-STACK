@@ -7,7 +7,7 @@ import articleRouter from './routes/articleRoutes.js';
 import commentRouter from './routes/commentRoutes.js';
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -31,6 +31,10 @@ connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog
   .catch((err) => {
     throw err;
   });
+
+app.get("/", (req, res) => {
+  res.json("Hello")
+});
 
 app.use('/', articleRouter);
 app.use('/', commentRouter);
