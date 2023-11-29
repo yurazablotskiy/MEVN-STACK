@@ -23,7 +23,12 @@ connect(mongoUri)
     throw err;
   });
 
-app.use('/api/', cors()); // CORS для шляхів, починаючи з /api/
+app.use('/api/', cors(
+   origin: ["https://article-site-server.vercel.app
+"],
+  methods: ["POST","GET"],
+  credentials: true
+)); // CORS для шляхів, починаючи з /api/
 app.use('/api/', articleRouter, commentRouter);
 
 app.get('/', (req, res) => {
