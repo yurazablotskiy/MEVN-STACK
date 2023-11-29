@@ -1,10 +1,44 @@
 {
   "version": 2,
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
   "routes": [
-    {     
-  "src": "/get-articles",
-      "headers": {"Access-Control-Allow-Origin": "*"}
+    {
+      "src": "/get-articles",
+      "methods": ["OPTIONS", "GET"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
+        "Access-Control-Allow-Methods": "OPTIONS,GET",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
+      "continue": true
+    },
+    {
+      "src": "/post-articles",
+      "methods": ["OPTIONS", "POST"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
+        "Access-Control-Allow-Methods": "OPTIONS,POST",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
+      "continue": true
+    },
+    {
+      "src": "/comment",
+      "methods": ["OPTIONS", "POST"],
+      "headers": {
+        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
+        "Access-Control-Allow-Methods": "OPTIONS,POST",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "status": 404,
+      "dest": "/404.html"
     }
   ]
 }
+
