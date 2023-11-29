@@ -7,15 +7,8 @@ import articleRouter from './routes/articleRoutes.js';
 import commentRouter from './routes/commentRoutes.js';
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(cors(
-  {
-  origin: 'https://article-site-server.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true
-}
-));
 
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -27,6 +20,13 @@ connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog
     throw err;
   });
 
+app.use(cors(
+  {
+  origin: 'https://article-site-server.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true
+}
+));
 app.use('/', articleRouter, commentRouter);
 
 app.get('/', (req, res) => {
