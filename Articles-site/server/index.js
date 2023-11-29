@@ -19,6 +19,16 @@ connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog
     throw err;
   });
 
+app.use('/', async (req, res, next) => {
+  try {
+    await articleRouter(req, res, next);
+    await commentRouter(req, res, next);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 app.use('/', articleRouter);
 app.use('/', commentRouter);
 
