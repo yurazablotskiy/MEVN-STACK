@@ -1,11 +1,7 @@
 {
   "version": 2,
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-  "routes": {
-    "/get-articles": {
-      "headers": {
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
-  }
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ]
 }
