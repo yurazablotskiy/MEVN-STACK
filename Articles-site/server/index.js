@@ -12,27 +12,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority')
+// Використання змінної середовища для MongoDB URI
+const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority';
+
+connect(mongoUri)
   .then(() => {
-    console.log('Вы подключились к БД');
+    console.log('Підключено до БД');
   })
   .catch((err) => {
     throw err;
   });
 
-app.use(cors(
-  {
-  origin: 'https://article-site-server.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true
-}
-));
-app.use('/', articleRouter, commentRouter);
+app.use('/api/', cors()); // CORS для шляхів, починаючи з /api/
+app.use('/api/', articleRouter, commentRouter);
 
 app.get('/', (req, res) => {
   res.send('Сервер працює...');
 });
 
-app.listen(3000, () =>
-  console.log('Сервер запущен по адресу http://localhost:3000')
+app.listen(process.env.PORT || 3000, () =>
+  console.log('Сервер запущено...')
 );
+
