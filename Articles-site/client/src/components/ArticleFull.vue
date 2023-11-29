@@ -39,7 +39,7 @@ export default {
 
   },
   async mounted() {
-    const getPosts = await axios.get("http://localhost:3000/get-posts");
+    const getPosts = await axios.get("https://articles-site-server.vercel.app/get-posts");
     this.postData = getPosts.data.filter(post => post.pageId == this.articleData.id);
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
       this.$emit('hide-full-article', this.fullArticle);
     },
     async addComment(name, text, id) {
-      await axios.post(`http://localhost:3000/add-post/?name=${name}&text=${text}&pageId=${id}`);
+      await axios.post(`https://articles-site-server.vercel.app/add-post/?name=${name}&text=${text}&pageId=${id}`);
       this.postData.unshift({ name, text, pageId: id })
     }
   }
