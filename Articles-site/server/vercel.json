@@ -8,18 +8,6 @@
   ],
   "routes": [
     {
-      "src": "/get-articles",
-      "dest": "/"
-    },
-    {
-      "src": "/get-posts",
-      "dest": "/"
-    },
-    {
-      "src": "/add-post",
-      "dest": "/"
-    },
-    {
       "src": "/(.*)",
       "dest": "/"
     }
