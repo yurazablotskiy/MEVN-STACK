@@ -9,7 +9,7 @@ import commentRouter from './routes/commentRoutes.js';
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({
-  origin: ["https://articles-site-server.vercel.app"],
+  origin: ["https://articles-site-client.vercel.app"],
   methods: ["POST","GET"],
   credentials: true
 }));
