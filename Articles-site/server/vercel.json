@@ -7,9 +7,21 @@
     }
   ],
   "routes": [
+   {
+      "src": "/get-articles",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/get-posts",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/add-post",
+      "dest": "/index.js"
+    },
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/index.js"
     }
   ]
 }
