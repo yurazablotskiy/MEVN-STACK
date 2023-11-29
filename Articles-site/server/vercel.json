@@ -5,7 +5,6 @@
     {     
   "src": "/get-articles",
       "headers": {"Access-Control-Allow-Origin": "*"}
-    },
-      // Add other routes if needed
+    }
   ]
 }
