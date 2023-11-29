@@ -11,7 +11,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json(
+    origin: ["https://article-site-server.vercel.app
+"],
+    methods: ["POST","GET"],
+    credentials: true
+));
 
 connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority')
   .then(() => {
