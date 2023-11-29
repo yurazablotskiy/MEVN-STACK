@@ -15,6 +15,6 @@
    "functions": {
     "myFunction": {
       "maxDuration": 10
-    },
-  },
+    }
+  }
 }
