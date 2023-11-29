@@ -1,35 +1,8 @@
 {
   "version": 2,
   "routes": [
-    {
-      "src": "/get-articles",
-      "methods": ["OPTIONS", "GET"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
-        "Access-Control-Allow-Methods": "OPTIONS,GET",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-      },
-      "continue": true
-    },
-    {
-      "src": "/add-post",
-      "methods": ["OPTIONS", "POST"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
-        "Access-Control-Allow-Methods": "OPTIONS,POST",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-      },
-      "continue": true
-    },
-    {
-      "src": "/get-posts",
-       "methods": ["OPTIONS", "GET"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
-        "Access-Control-Allow-Methods": "OPTIONS,GET",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-      },
-      "continue": true
-    }
-  ]
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.js" }
+  ],
+  "builds": [{ "src": "/index.js", "use": "@now/node" }]
 }
