@@ -25,7 +25,7 @@ export default {
     }
   },
   async mounted() {
-    const loadArticles = await axios.get("http://localhost:3000/get-articles");
+    const loadArticles = await axios.get("https://articles-site-server.vercel.app/get-articles");
     this.articles = loadArticles.data; 
   },
   methods: {
