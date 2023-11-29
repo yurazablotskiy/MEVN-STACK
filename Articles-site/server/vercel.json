@@ -30,7 +30,6 @@
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
       },
       "continue": true
-    },
-    // ... other routes
+    }
   ]
 }
