@@ -7,16 +7,16 @@ import articleRouter from './routes/articleRoutes.js';
 import commentRouter from './routes/commentRoutes.js';
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(cors();
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json(
-    origin: ["https://article-site-server.vercel.app
+app.use(express.urlencoded({ extended: true }));
+app.use(cors(
+        origin: ["https://article-site-server.vercel.app
 "],
     methods: ["POST","GET"],
     credentials: true
-));
+);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority')
   .then(() => {
