@@ -11,14 +11,5 @@
       "src": "/(.*)",
       "dest": "index.js"
     }
-  ],
-  "functions": {
-    "api/*": {
-      "cors": {
-        "origin": "https://article-site-server.vercel.app",
-        "methods": ["GET", "POST", "PUT", "DELETE"],
-        "credentials": true
-      }
-    }
-  }
+  ]
 }
