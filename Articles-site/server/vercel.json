@@ -14,7 +14,7 @@
   ],
    "functions": {
     "myFunction": {
-      "maxDuration": 10 // Increase the timeout in seconds
-    }
-  }
+      "maxDuration": 10
+    },
+  },
 }
