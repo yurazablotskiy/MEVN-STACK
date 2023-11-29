@@ -11,5 +11,10 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ]
+  ],
+   "functions": {
+    "myFunction": {
+      "maxDuration": 10 // Increase the timeout in seconds
+    }
+  }
 }
