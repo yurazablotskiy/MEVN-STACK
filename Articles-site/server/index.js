@@ -7,7 +7,7 @@ import articleRouter from './routes/articleRoutes.js';
 import commentRouter from './routes/commentRoutes.js';
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
