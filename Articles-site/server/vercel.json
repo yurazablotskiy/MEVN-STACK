@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/get-articles",
+      "src": "/articles/get-articles",
       "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
@@ -12,7 +12,7 @@
       "continue": true
     },
     {
-      "src": "/add-post",
+      "src": "/comments",
       "methods": ["OPTIONS", "POST"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
@@ -22,8 +22,8 @@
       "continue": true
     },
     {
-      "src": "/get-posts",
-      "methods": ["OPTIONS", "GET"],
+      "src": "/comments",
+       "methods": ["OPTIONS", "GET"],
       "headers": {
         "Access-Control-Allow-Origin": "https://articles-site-client.vercel.app",
         "Access-Control-Allow-Methods": "OPTIONS,GET",
@@ -31,14 +31,6 @@
       },
       "continue": true
     },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/.*",
-      "status": 404,
-      "dest": "/404.html"
-    }
+    // ... other routes
   ]
 }
-
