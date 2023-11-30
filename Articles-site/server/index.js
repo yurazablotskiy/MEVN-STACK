@@ -7,26 +7,38 @@ import articleRouter from './routes/articleRoutes.js';
 import commentRouter from './routes/commentRoutes.js';
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
-app.use(cors());
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(cors();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-connect('mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority')
+// Підключення до бази даних
+const urlMongoDB = process.env.MONGODB_URI || 'mongodb+srv://dbYura:x90KglAoIfTKjW1x@cluster0.wq8ibv3.mongodb.net/blog?retryWrites=true&w=majority';
+connect(urlMongoDB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
   .then(() => {
-    console.log('Вы подключились к БД');
+    console.log('Ви підключились до бази даних');
   })
   .catch((err) => {
-    throw err;
+    console.error('Помилка підключення до бази даних:', err.message);
+    process.exit(1); // Завершення процесу у випадку помилки підключення
   });
 
-app.use('/', articleRouter, commentRouter);
+// Роутери
+app.use('/', articleRouter);
+app.use('/', commentRouter);
 
+// Головний маршрут
 app.get('/', (req, res) => {
   res.send('Сервер працює...');
 });
 
-app.listen(3000, () =>
-  console.log('Сервер запущен по адресу http://localhost:3000')
-);
+// Запуск сервера
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Сервер запущено на порту ${PORT}`);
+});
