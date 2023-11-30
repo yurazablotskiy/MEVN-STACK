@@ -48,7 +48,7 @@ export default {
       this.$emit('hide-full-article', this.fullArticle);
     },
     async addComment(name, text, id) {
-      await axios.post(`https://article-site-server.vercel.app/add-post/?name=${name}&text=${text}&pageId=${id}`);
+      await axios.post(`https://articles-site-server.vercel.app/add-post/?name=${name}&text=${text}&pageId=${id}`);
       this.postData.unshift({ name, text, pageId: id })
     }
   }
