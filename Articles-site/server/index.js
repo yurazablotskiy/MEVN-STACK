@@ -10,7 +10,12 @@ const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
-app.use(cors();
+app.use(cors(
+     origin: ["https://article-site-server.vercel.app
+"],
+  methods: ["POST","GET"],
+  credentials: true
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
