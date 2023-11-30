@@ -39,7 +39,7 @@ export default {
 
   },
   async mounted() {
-    const getPosts = await axios.get("https://article-site-server.vercel.app/get-posts");
+    const getPosts = await axios.get("https://articles-site-server.vercel.app/get-posts");
     this.postData = getPosts.data.filter(post => post.pageId == this.articleData.id);
   },
   methods: {
